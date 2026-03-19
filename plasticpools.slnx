@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="plasticpools.client/plasticpools.client.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="plasticpools.Server/plasticpools.Server.csproj" />
+</Solution>
