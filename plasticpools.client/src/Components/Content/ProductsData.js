@@ -162,12 +162,13 @@ export const ALL_PRODUCTS = {
         { id: 12, title: 'DIN 200', mainImg: { png: spool12Png, webp: spool12Webp }, popupImg: { png: dim12Png, webp: dim12Webp } },
         { id: 13, title: 'DIN 250', mainImg: { png: spool13Png, webp: spool13Webp }, popupImg: { png: dim13Png, webp: dim13Webp } },
         { id: 14, title: 'SD 300', mainImg: { png: spool14Png, webp: spool14Webp }, popupImg: { png: dim14Png, webp: dim14Webp } },
+        { id: 20, title: 'SD 270', mainImg: { png: spool15Png, webp: spool15Webp }, popupImg: { png: dim15Png, webp: dim15Webp } },
         { id: 15, title: 'PT 1', mainImg: { png: pt1Png, webp: pt1Webp }, popupImg: { png: pt1DimPng, webp: pt1DimWebp } },
         { id: 16, title: 'PT 4', mainImg: { png: pt4Png, webp: pt4Webp }, popupImg: { png: pt4DimPng, webp: pt4DimWebp } },
         { id: 17, title: 'PT 7', mainImg: { png: pt7Png, webp: pt7Webp }, popupImg: { png: pt7DimPng, webp: pt7DimWebp } },
         { id: 18, title: 'PT 10', mainImg: { png: pt10Png, webp: pt10Webp }, popupImg: { png: pt10DimPng, webp: pt10DimWebp } },
         { id: 19, title: 'PT 15', mainImg: { png: pt15Png, webp: pt15Webp }, popupImg: { png: pt15DimPng, webp: pt15DimWebp } },
-        { id: 20, title: 'SD 270', mainImg: { png: spool15Png, webp: spool15Webp }, popupImg: { png: dim15Png, webp: dim15Webp } },
+        
     ],
     customized: [
         { id: 20, title: '6 inch / 150 mm spool', mainImg: { png: custom1Png, webp: custom1Webp }, popupImg: { png: custom1Png, webp: custom1Webp } },

@@ -44,7 +44,9 @@ const ProductCard = ({ mainImg, popupImg, title, categoryId, isSquare, isVideo, 
                     data-fancybox="gallery"
                     href={videoSrc}
                     data-type="html5video"                    data-caption={title}
-                    className="w-full bg-white border border-[#002147] transition-all duration-500 flex items-center justify-center overflow-hidden cursor-pointer outline-none relative aspect-[38/25] "
+                    className="w-full h-[92%] bg-white border border-[#002147] 
+                        transition-all duration-500 flex items-center justify-center 
+                        overflow-hidden cursor-pointer outline-none relative"
                     style={{ borderRadius: '20px 0px 20px 0px' }}
                 >
                     <picture className="w-full h-full flex items-center justify-center pointer-events-none">
@@ -71,11 +73,11 @@ const ProductCard = ({ mainImg, popupImg, title, categoryId, isSquare, isVideo, 
                     {/* Product Image / Technical Diagram */}
                     <picture className="w-full h-full flex items-center justify-center pointer-events-none">
                         <source srcSet={mainImg.webp} type="image/webp" />
-                        <img
-                            src={mainImg.png}
-                            alt={title || "Product Image"}
-                            className="w-full h-full object-contain transform transition-transform duration-500 ease-in-out"
-                        />
+                            <img
+                                src={mainImg.png}
+                                alt={title || "Product Image"}
+                                className="w-[110%] h-[110%] object-contain transform scale-110 transition-transform duration-500 ease-in-out"
+                            />
                     </picture>
 
                     {/* Hover Overlay */}
