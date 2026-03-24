@@ -43,7 +43,7 @@ const ProductCard = ({ mainImg, popupImg, title, categoryId, isSquare, isVideo, 
                 <a
                     data-fancybox="gallery"
                     href={videoSrc}
-                    data-type="html5video" data-caption={title}
+                    data-type="html5video"                    data-caption={title}
                     className="w-full h-[92%] bg-white border border-[#002147] 
                         transition-all duration-500 flex items-center justify-center 
                         overflow-hidden cursor-pointer outline-none relative"
@@ -76,7 +76,7 @@ const ProductCard = ({ mainImg, popupImg, title, categoryId, isSquare, isVideo, 
                         <img
                             src={mainImg.png}
                             alt={title || "Product Image"}
-                            className="w-[110%] h-[110%] object-contain transform scale-110 transition-transform duration-500 ease-in-out"
+                            className="w-full h-full object-contain transform transition-transform duration-500 ease-in-out"
                         />
                     </picture>
 

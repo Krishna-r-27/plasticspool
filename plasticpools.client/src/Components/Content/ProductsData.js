@@ -168,7 +168,7 @@ export const ALL_PRODUCTS = {
         { id: 17, title: 'PT 7', mainImg: { png: pt7Png, webp: pt7Webp }, popupImg: { png: pt7DimPng, webp: pt7DimWebp } },
         { id: 18, title: 'PT 10', mainImg: { png: pt10Png, webp: pt10Webp }, popupImg: { png: pt10DimPng, webp: pt10DimWebp } },
         { id: 19, title: 'PT 15', mainImg: { png: pt15Png, webp: pt15Webp }, popupImg: { png: pt15DimPng, webp: pt15DimWebp } },
-
+        
     ],
     customized: [
         { id: 20, title: '6 inch / 150 mm spool', mainImg: { png: custom1Png, webp: custom1Webp }, popupImg: { png: custom1Png, webp: custom1Webp } },
