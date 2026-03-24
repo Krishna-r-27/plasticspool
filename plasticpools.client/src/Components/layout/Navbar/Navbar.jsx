@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-//import { HashLink } from 'react-router-hash-link';
+import { HashLink } from 'react-router-hash-link';
 import Button from '../../ui/Button/Button';
 import logoWebp from '../../../assets/img/plasticspool-hi-tech-plast-logo.webp';
 import logoPng from '../../../assets/img/plasticspool-hi-tech-plast-logo.png';
@@ -89,17 +89,17 @@ const Navbar = () => {
                                             {/* Dropdown */}
                                             <div className="absolute top-full left-0 mt-2 w-64 bg-white shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
 
-                                                    {item.dropdown.map((sub, index) => (
-                                                        <NavLink
-                                                            key={sub.label}
-                                                            to={sub.path}
-                                                            className={`block px-4 py-3 text-md text-secondary 
+                                                {item.dropdown.map((sub, index) => (
+                                                    <NavLink
+                                                        key={sub.label}
+                                                        to={sub.path}
+                                                        className={`block px-4 py-3 text-md text-secondary 
         hover:bg-[#002147] hover:text-white transition
         ${index !== item.dropdown.length - 1 ? 'border-b border-gray-200' : ''}`}
-                                                        >
-                                                            {sub.label}
-                                                        </NavLink>
-                                                    ))}
+                                                    >
+                                                        {sub.label}
+                                                    </NavLink>
+                                                ))}
 
                                             </div>
                                         </>
@@ -136,19 +136,74 @@ const Navbar = () => {
 
                 <div className="flex-grow overflow-y-auto">
                     <div className="px-6 flex flex-col gap-4 text-center py-8">
-                        {navItems.map((item) => (
-                            <NavLink
-                                key={item.label}
-                                to={item.path}
-                                onClick={() => setIsOpen(false)}
-                                style={({ isActive }) => ({
-                                    color: isActive ? '#002147' : '',
-                                    boxShadow: isActive ? '0 2px 0 0 #002147' : ''
-                                })}
-                                className="text-base block transition-all duration-300 mx-auto w-fit pb-1"
-                            >
-                                {item.label}
-                            </NavLink>
+                        {navItems.map((item, index) => (
+                            <div key={item.label} className="w-full text-center">
+
+                                {/* Normal Link */}
+                                {!item.dropdown ? (
+                                    <NavLink
+                                        to={item.path}
+                                        onClick={() => setIsOpen(false)}
+                                        className={({ isActive }) =>
+                                            `text-base inline-block py-2 transition-all duration-300
+        ${isActive
+                                                ? 'text-[#002147] font-bold border-b-2 border-[#002147]'
+                                                : 'text-[#252525]'
+                                            }`
+                                        }
+                                    >
+                                        {item.label}
+                                    </NavLink>
+                                ) : (
+                                    <>
+                                        {/* Dropdown Toggle */}
+                                        <button
+                                            onClick={() =>
+                                                setOpenDropdown(openDropdown === index ? null : index)
+                                            }
+                                            className="w-full flex items-center justify-center gap-2 py-2 text-base"
+                                        >
+                                            {item.label}
+
+                                            {/* Arrow */}
+                                            <svg
+                                                className={`w-4 h-4 transition-transform duration-300 
+                        ${openDropdown === index ? 'rotate-180' : ''}`}
+                                                fill="none"
+                                                stroke="currentColor"
+                                                strokeWidth="2"
+                                                viewBox="0 0 24 24"
+                                            >
+                                                <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+                                            </svg>
+                                        </button>
+
+                                        {/* Dropdown Items */}
+                                        <div
+                                            className={`overflow-hidden transition-all duration-300 
+    ${openDropdown === index ? 'max-h-96 mt-2' : 'max-h-0'}`}
+                                        >
+                                            <div className="mx-6 bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+
+                                                {item.dropdown.map((sub, i) => (
+                                                    <NavLink
+                                                        key={sub.label}
+                                                        to={sub.path}
+                                                        onClick={() => setIsOpen(false)}
+                                                        className={`block px-2 py-3 text-md text-secondary transition
+                hover:bg-[#002147] hover:text-white
+                ${i !== item.dropdown.length - 1 ? 'border-b border-gray-200' : ''}`}
+                                                    >
+                                                        {sub.label}
+                                                    </NavLink>
+                                                ))}
+
+                                            </div>
+                                        </div>
+                                    </>
+                                )}
+
+                            </div>
                         ))}
                         <div className="pt-2 mx-auto">
                             <Button

@@ -11,6 +11,8 @@ import img1 from '../../../assets/img/plasticspool-hi-tech-plast-spools-for-enam
 import img2 from '../../../assets/img/plasticspool-hi-tech-plast-customized-spools.png';
 import img3 from '../../../assets/img/plasticspool-hi-tech-plast-spools-for-cable.png';
 import img4 from '../../../assets/img/plasticspool-hi-tech-plast-spools-for-pu-pipes.png';
+import img5 from '../../../assets/img/MDF-Spool.png';
+import img6 from '../../../assets/img/SD-300-Replace.png';
 
 const btnClass = "cursor-pointer text-[#252525] outline-none flex-shrink-0";
 
@@ -35,10 +37,8 @@ const ProductSection = ({
         { id: 2, title: "Customized Spools", image: img2, link: "/products#customized" },
         { id: 3, title: "Spools For Cable", image: img3, link: "/products#cable" },
         { id: 4, title: "Spools For PU Pipes and Tubes", image: img4, link: "/products#pu-pipes" },
-        { id: 5, title: "Spools for Enameled Wires", image: img1, link: "/products#enameled" },
-        { id: 6, title: "Customized Spools", image: img2, link: "/products#customized" },
-        { id: 7, title: "Spools For Cable", image: img3, link: "/products#cable" },
-        { id: 8, title: "Spools For PU Pipes and Tubes", image: img4, link: "/products#pu-pipes" }
+        { id: 9, title: "Spools For Zipper", image: img5, link: "/products#spool" },
+        { id: 10, title: "Spools For Welding Wire", image: img6, link: "/products#spool-welding" }
     ]
 }) => {
     const swiperRef = useRef(null);

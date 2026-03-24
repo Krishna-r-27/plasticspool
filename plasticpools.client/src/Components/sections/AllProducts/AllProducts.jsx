@@ -29,25 +29,40 @@ const AllProducts = () => {
 
     const currentProducts = ALL_PRODUCTS[activeTab] || [];
 
+    const TAB_EXTRA_CONTENT = {
+        enameled:"Copper & Aluminum Enameled Wires, Welding Wires and other fine wires.",
+        customized: "Insulated Wires, Mono Filament Yarns, Warning/Barrier/Caution Tapes, 3D Printer Wires, Silica Gel Pouch Strips, Plastic Ropes and other fine Threads, wires, tapes and flexible pipes.",
+        cable: "Shielded Cables, Twisted Pair Cables, DPC Wire, Coaxial Cables, Fibre Optics Cable and other cables.",
+        "pu-pipes": "PU Tube, Silicon Tube and other Tubes and Pipes.",
+    };
+
     return (
         <section className="pt-16 md:pt-28">
             <div className="container mx-auto">
 
                 {/* Category Tabs */}
-                <div className="flex flex-wrap flex-col sm:flex-row gap-4 mb-8">
+                <div className="flex flex-wrap flex-col sm:flex-row gap-5 mb-8">
                     {PRODUCT_CATEGORIES.map((category) => (
                         <button
                             key={category.id}
                             onClick={() => setActiveTab(category.id)}
                             className={`px-4 py-3 rounded-tl-[15px] rounded-br-[15px] font-body text-base font-bold transition-all duration-300 ${activeTab === category.id
-                                    ? 'bg-[#002147] text-[#FDF14A]'
-                                    : 'bg-white text-[#252525] border border-[#002147]'
+                                ? 'bg-[#002147] text-[#FDF14A]'
+                                : 'bg-white text-[#252525] border border-[#002147]'
                                 }`}
                         >
                             {category.label}
                         </button>
                     ))}
                 </div>
+
+                {TAB_EXTRA_CONTENT[activeTab] && (
+                    <div className="mb-6">
+                        <p className="font-body text-slate-700 text-base leading-relaxed text-center lg:text-left">
+                            <span className="font-bold text-[#1e293b]">Use Cases:</span> {TAB_EXTRA_CONTENT[activeTab]}
+                        </p>
+                    </div>
+                )}
 
                 {/* Note */}
                 <div className="mb-10">

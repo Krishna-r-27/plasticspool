@@ -108,8 +108,8 @@ import custom8Png from '../../assets/img/03-Insulated_05.png';
 import custom8Webp from '../../assets/img/03-Insulated_05.webp';
 
 // --- 5. CABLE SERIES (Using Big New Dimension Images for Main Image) ---
-import cableSpool400Png from '../../assets/img/spool_400_mm_new.png';
-import cableSpool400Webp from '../../assets/img/spool_400_mm_new.webp';
+import cableSpool400Png from '../../assets/img/400-new.png';
+import cableSpool400Webp from '../../assets/img/400-new.webp';
 import cableSpool400x45Png from '../../assets/img/spool_400X45_mm_new.png';
 import cableSpool400x45Webp from '../../assets/img/spool_400X45_mm_new.webp';
 import cableSpool10x2Png from '../../assets/img/Spool-10 X 2-Inch.png';
@@ -144,6 +144,7 @@ export const PRODUCT_CATEGORIES = [
     { id: 'cable', label: 'Spools For Cable' },
     { id: 'pu-pipes', label: 'Spools For PU Pipes and Tubes' },
     { id: 'spool', label: 'Spools For Zipper' },
+    { id: 'spool-welding', label: 'Spools For Welding Wire' },
 ];
 
 export const ALL_PRODUCTS = {
@@ -161,8 +162,6 @@ export const ALL_PRODUCTS = {
         { id: 11, title: '10"/250 MM', mainImg: { png: spool11Png, webp: spool11Webp }, popupImg: { png: dim11Png, webp: dim11Webp } },
         { id: 12, title: 'DIN 200', mainImg: { png: spool12Png, webp: spool12Webp }, popupImg: { png: dim12Png, webp: dim12Webp } },
         { id: 13, title: 'DIN 250', mainImg: { png: spool13Png, webp: spool13Webp }, popupImg: { png: dim13Png, webp: dim13Webp } },
-        { id: 14, title: 'SD 300', mainImg: { png: spool14Png, webp: spool14Webp }, popupImg: { png: dim14Png, webp: dim14Webp } },
-        { id: 20, title: 'SD 270', mainImg: { png: spool15Png, webp: spool15Webp }, popupImg: { png: dim15Png, webp: dim15Webp } },
         { id: 15, title: 'PT 1', mainImg: { png: pt1Png, webp: pt1Webp }, popupImg: { png: pt1DimPng, webp: pt1DimWebp } },
         { id: 16, title: 'PT 4', mainImg: { png: pt4Png, webp: pt4Webp }, popupImg: { png: pt4DimPng, webp: pt4DimWebp } },
         { id: 17, title: 'PT 7', mainImg: { png: pt7Png, webp: pt7Webp }, popupImg: { png: pt7DimPng, webp: pt7DimWebp } },
@@ -243,5 +242,10 @@ export const ALL_PRODUCTS = {
             mainImg: { png: zipper2Png, webp: zipper2Webp },
             popupImg: { png: zipper2Png, webp: zipper2Webp }
         }
-    ]
+    ],
+    'spool-welding': [
+        { id: 14, title: 'SD 300', mainImg: { png: spool14Png, webp: spool14Webp }, popupImg: { png: dim14Png, webp: dim14Webp } },
+        { id: 20, title: 'SD 270', mainImg: { png: spool15Png, webp: spool15Webp }, popupImg: { png: dim15Png, webp: dim15Webp } },
+
+    ],
 };

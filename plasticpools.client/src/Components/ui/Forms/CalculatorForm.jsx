@@ -144,7 +144,7 @@ const CalculatorForm = () => {
                 <div className="flex flex-col gap-1.5">
                     <label className="text-base  text-white  font-medium font-dmsans">Maximum Length of Cable / Reel:</label>
                     <div className={`w-full h-[48px] bg-white flex items-center px-4 shadow-inner ${universalRadius}`}>
-                        <span className="text-[#002147] font-bold opacity-30 text-base italic tracking-widest">{result || "---"}</span>
+                        <span className="text-[#002147] font-semibold text-base italic tracking-widest">{result || "---"}</span>
                     </div>
                 </div>
             </div>
