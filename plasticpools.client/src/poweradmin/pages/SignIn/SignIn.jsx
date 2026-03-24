@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AppFooter from "../../layout/AppFooter";
-import api, { IMAGE_BASE_URL } from "../../../api/axios";
+import api, { IMAGE_BASE_URL } from "../../api/axios";
 
 const SignIn = () => {
     const navigate = useNavigate();

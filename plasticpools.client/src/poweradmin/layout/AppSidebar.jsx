@@ -8,7 +8,7 @@ import { BsBox } from "react-icons/bs";
 import { FaRegUserCircle } from "react-icons/fa";
 import { RiFileEditLine } from "react-icons/ri";
 import { FaWpforms } from "react-icons/fa6";
-import  { IMAGE_BASE_URL } from "../../api/axios";
+import  { IMAGE_BASE_URL } from "../api/axios";
 const baseItem =
     "group flex items-center gap-3 px-4 py-2.5 rounded-lg  font-medium transition-all duration-200";
 
