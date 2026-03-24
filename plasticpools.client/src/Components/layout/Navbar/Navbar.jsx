@@ -23,7 +23,8 @@ const Navbar = () => {
                 { label: "Customized Spools", path: "/products?tab=customized" },
                 { label: "Spools For Cable", path: "/products?tab=cable" },
                 { label: "Spools For PU Pipes and Tubes", path: "/products?tab=pu-pipes" },
-                { label: "Spools For Zipper", path: "/products?tab=spool" }
+                { label: "Spools For Zipper", path: "/products?tab=spool" },
+                { label: "Spools For Welding Wire", path: "/products?tab=spool-welding" }
             ]
         },
         { label: "Blog", path: "/blog" },
