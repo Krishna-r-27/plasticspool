@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { FiArrowUpRight } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
+//import { FiArrowUpRight } from 'react-icons/fi';
+//import { Link } from 'react-router-dom';
 import Button from '../../ui/Button/Button';
 
 const AboutCompany = ({

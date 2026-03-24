@@ -1,69 +1,77 @@
-// src/pages/BlogDetails/BlogDetails.jsx
-import React from 'react';
-import { blogDetailsData } from '../../Components/Content/BlogDetailsData';
+﻿import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import InnerBanner from '../../Components/layout/InnerBanner/InnerBanner';
 import RelatedBlogs from '../../Components/sections/RelatedBlogs/RelatedBlogs';
-
-//import RelatedBlogs from './RelatedBlogs'; // Naya component import kiya
+import api, { IMAGE_BASE_URL } from "../../poweradmin/api/axios";
 
 const BlogDetails = () => {
-    const { title, imagePng, imageWebp, imageAlt, content } = blogDetailsData;
+
+    const { slug } = useParams(); // ✅ slug le rahe hai
+    const [blog, setBlog] = useState(null);
+
+    useEffect(() => {
+        fetchBlog();
+    }, [slug]);
+
+    const fetchBlog = async () => {
+        try {
+            const res = await api.get(`/blog/getbyslug/${slug}`);
+            setBlog(res.data);
+        } catch (err) {
+            console.error("Error fetching blog", err);
+        }
+    };
+
+    if (!blog) return <div className="text-center py-10">Loading...</div>;
 
     return (
         <>
             <InnerBanner title="Blog" breadcrumb="Blog" />
 
-            <main className="py-16 md:py-28  bg-white text-center lg:text-start blog-detail">
+            <main className="py-16 md:py-28 bg-white blog-detail">
                 <div className="container">
+
                     <div className="block">
 
-                        {/* DESKTOP IMAGE - Only visible on lg (>1024px) */}
-                        {/* Float logic stays here for desktop layout */}
+                        {/* IMAGE */}
                         <div className="hidden lg:block lg:float-left lg:w-1/2 lg:mr-18 lg:mb-4">
-                            <picture className="block w-full">
-                                <source srcSet={imageWebp} type="image/webp" />
-                                <img
-                                    src={imagePng}
-                                    alt={imageAlt}
-                                    className="w-full aspect-square object-cover rounded-tl-[40px] rounded-br-[40px] border-0 block"
-                                />
-                            </picture>
+                            <img
+                                src={`${IMAGE_BASE_URL}/${blog.image}`}
+                                alt={blog.title}
+                                className="w-full aspect-square object-cover rounded-tl-[40px] rounded-br-[40px]"
+                            />
                         </div>
 
-                        {/* TEXT CONTENT */}
+                        {/* CONTENT */}
                         <div className="blog-content">
-                            <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-[#002147] mb-6 leading-tight">
-                                {title}
+                            <h1 className="text-3xl font-semibold mb-6">
+                                {blog.title}
                             </h1>
 
-                            {/* MOBILE/TABLET IMAGE - Only visible on screens < 1024px */}
-                            {/* Placed specifically below the heading */}
-                            <div className="block lg:hidden mx-auto w-[75%] mb-8">
-                                <picture className="block w-full">
-                                    <source srcSet={imageWebp} type="image/webp" />
-                                    <img
-                                        src={imagePng}
-                                        alt={imageAlt}
-                                        className=" w-[80%] md:w-[65%] mx-auto w-full aspect-square object-cover rounded-tl-[40px] rounded-br-[40px] border-0 block"
-                                    />
-                                </picture>
+                            <div className="block lg:hidden mb-8 text-center">
+                                <img
+                                    src={`${IMAGE_BASE_URL}/${blog.image}`}
+                                    alt={blog.title}
+                                    className="w-[70%] mx-auto rounded"
+                                />
                             </div>
 
-                            <div className="text-base leading-[1.8] text-gray-700">
-                                {content.map((paragraph, index) => (
-                                    <p key={index} className="mb-4">{paragraph}</p>
-                                ))}
-                            </div>
+                            {/*<p className="text-gray-700 leading-[1.8]">*/}
+                            {/*    {blog.description1}*/}
+                            {/*</p>*/}
+                            <div
+                                className="text-gray-700 leading-[1.8] blog-html"
+                                dangerouslySetInnerHTML={{ __html: blog.description1 }}
+                            />
                         </div>
 
-                        {/* Clearfix ensures container doesn't collapse */}
                         <div className="clear-both"></div>
                     </div>
+
                 </div>
             </main>
 
-            {/* RELATED BLOGS SECTION */}
-            <RelatedBlogs />
+            <RelatedBlogs currentSlug={slug} />
         </>
     );
 };

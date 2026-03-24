@@ -115,7 +115,7 @@ const ContactSection = () => {
                         </div>
 
                         {/* Right Side: Inquiry Form */}
-                        <div className="h-fit lg:w-[75%] xl:w-full mx-auto">
+                        <div className="h-fit lg:mt-14 lg:w-[75%] xl:w-full mx-auto">
                             <InquiryForm />
                         </div>
 
