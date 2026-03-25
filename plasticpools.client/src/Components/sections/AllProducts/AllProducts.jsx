@@ -41,14 +41,14 @@ const AllProducts = () => {
             <div className="container mx-auto">
 
                 {/* Category Tabs */}
-                <div className="flex flex-wrap flex-col sm:flex-row gap-5 mb-8">
+                <div className="flex flex-wrap gap-5 mb-8">
                     {PRODUCT_CATEGORIES.map((category) => (
                         <button
                             key={category.id}
                             onClick={() => setActiveTab(category.id)}
-                            className={`px-4 py-3 rounded-tl-[15px] rounded-br-[15px] font-body text-base font-bold transition-all duration-300 ${activeTab === category.id
-                                ? 'bg-[#002147] text-[#FDF14A]'
-                                : 'bg-white text-[#252525] border border-[#002147]'
+                            className={`w-[280px] text-center px-4 py-3 whitespace-nowrap rounded-tl-[15px] rounded-br-[15px] font-body text-base font-bold transition-all duration-300 ${activeTab === category.id
+                                    ? 'bg-[#002147] text-[#FDF14A]'
+                                    : 'bg-white text-[#252525] border border-[#002147]'
                                 }`}
                         >
                             {category.label}
