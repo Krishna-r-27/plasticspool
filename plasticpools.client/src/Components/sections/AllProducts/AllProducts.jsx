@@ -41,7 +41,7 @@ const AllProducts = () => {
             <div className="container mx-auto">
 
                 {/* Category Tabs */}
-                <div className="flex flex-wrap gap-5 mb-8">
+                <div className="flex flex-wrap justify-center gap-5 mb-8">
                     {PRODUCT_CATEGORIES.map((category) => (
                         <button
                             key={category.id}
