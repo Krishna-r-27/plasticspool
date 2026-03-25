@@ -2,8 +2,8 @@ import React from 'react';
 import HomeBanner from "../../Components/layout/HomeBanner/HomeBanner";
 
 // Asset Imports
-import homeAboutWebp from '../../assets/img/about-plasticspool-hi-tech-plast.webp';
-import homeAboutPng from '../../assets/img/about-plasticspool-hi-tech-plast.png';
+import homeAboutWebp from '../../assets/img/about-iso-new-img-1.webp';
+import homeAboutPng from '../../assets/img/about-iso-new-img-1.png';
 import AboutCompany from '../../Components/sections/AboutCompany/AboutCompany';
 import ReelCalculator from '../../Components/sections/ReelCalculator/ReelCalculator';
 import ProductSection from '../../Components/sections/ProductSection/ProductSection';

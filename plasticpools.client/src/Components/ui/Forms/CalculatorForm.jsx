@@ -97,7 +97,7 @@ const CalculatorForm = () => {
                     id="flange"
                     label="Flange Diameter"
                     unit="mm"
-                    options={["600 mm", "800 mm", "1000 mm"]}
+                    options={["150 MM", "200 MM", "250 MM", "300 MM", "330 MM", "400 MM"]}
                     onChange={setFlange} // ✅ ADD
                     radiusClass={universalRadius}
                     activeDropdown={activeDropdown}
@@ -107,7 +107,7 @@ const CalculatorForm = () => {
                     id="barrel"
                     label="Barrel Diameter"
                     unit="mm"
-                    options={["300 mm", "400 mm", "500 mm"]}
+                    options={["85 MM", "50 MM", "45 MM", "150 MM", ]}
                     onChange={setBarrel} // ✅ ADD
                     radiusClass={universalRadius}
                     activeDropdown={activeDropdown}

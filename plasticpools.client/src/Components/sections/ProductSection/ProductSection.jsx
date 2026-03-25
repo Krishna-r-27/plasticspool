@@ -7,7 +7,7 @@ import BlogCard from "../../ui/BlogCard/BlogCard";
 import bgPattern from '../../../assets/img/plasticspool-hi-tech-plast-products.png';
 import Button from '../../ui/Button/Button';
 
-import img1 from '../../../assets/img/plasticspool-hi-tech-plast-spools-for-enameled-wires.png';
+import img1 from '../../../assets/img/plast-spools-for-enameled-wires.png';
 import img2 from '../../../assets/img/plasticspool-hi-tech-plast-customized-spools.png';
 import img3 from '../../../assets/img/plasticspool-hi-tech-plast-spools-for-cable.png';
 import img4 from '../../../assets/img/plasticspool-hi-tech-plast-spools-for-pu-pipes.png';

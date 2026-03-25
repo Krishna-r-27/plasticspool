@@ -3,8 +3,8 @@ import AboutCompany from '../../Components/sections/AboutCompany/AboutCompany';
 import InnerBanner from '../../Components/layout/InnerBanner/InnerBanner';
 
 // Page specific images
-import homeAboutWebp from '../../assets/img/about-iso-verified-plasticspool-hi-tech-plast.webp';
-import homeAboutPng from '../../assets/img/about-iso-verified-plasticspool-hi-tech-plast.png';
+import homeAboutWebp from '../../assets/img/about-iso-new-img-1.webp';
+import homeAboutPng from '../../assets/img/about-iso-new-img-1.png';
 
 const aboutData = {
     description: `In the year 1995, Hi-Tech Plast was incorporated to manufacture cost-effective and efficient Plastic Reels for various purposes. Our company is admired for our quality products and prompt services by our valued clients. After creating a niche in the Domestic Market, we are also planning to increase our horizon in the International Market. Our customer list includes number of satisfied reputed winding wire manufacturers of India, which is a proof of our efficiency and quality work.
