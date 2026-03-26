@@ -8,7 +8,7 @@ const TinyEditor = ({ value, onChange }) => {
     return (
         <Editor
             key={theme} // 🔥 re-mount on toggle
-            apiKey="3uc2a3cd1cu3wmf2pun16agsk8ilrfbwp9kw3xuqxaqz5yya"
+            apiKey="vlsaumovx6o0d05ga5sq0g7xiudfvly9shujx8boq9qndic4"
             value={value}
             init={{
                 height: 250,

@@ -22,7 +22,7 @@ function BlogTable() {
     const fetchData = async () => {
         setLoading(true);
         try {
-            const res = await api.get("/blog/list");
+            const res = await api.get("https://www.plasticspool.com/api/blog/list");
             setData(res.data);
         } catch (err) {
             console.error("Error fetching blogs", err);

@@ -34,7 +34,7 @@ const AddBlog = () => {
 
     const loadBlog = async () => {
         try {
-            const res = await api.get(`/blog/get/${id}`);
+            const res = await api.get(`https://www.plasticspool.com/blog/get/${id}`);
             const b = res.data;
 
             setTitle(b.title);
@@ -80,11 +80,11 @@ const AddBlog = () => {
             if (image) formData.append("Image", image);
 
             if (isEdit) {
-                await api.put(`/blog/update/${id}`, formData, {
+                await api.put(`https://www.plasticspool.com/blog/update/${id}`, formData, {
                     headers: { "Content-Type": "multipart/form-data" }
                 });
             } else {
-                await api.post("/blog/add/", formData, {
+                await api.post("https://www.plasticspool.com/blog/add/", formData, {
                     headers: { "Content-Type": "multipart/form-data" }
                 });
             }
@@ -105,7 +105,7 @@ const AddBlog = () => {
             <PageHeader
                 title={isEdit ? "Edit Blog" : "Add Blog"}
                 breadcrumbs={[
-                    { label: "Dashboard", href: "/poweradmin/poweradmin" },
+                    { label: "Dashboard", href: "/poweradmin" },
                     { label: isEdit ? "Edit Blog" : "Add Blog" },
                 ]}
             />

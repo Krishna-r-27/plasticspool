@@ -14,7 +14,7 @@ const Blog = () => {
 
     const fetchBlogs = async () => {
         try {
-            const res = await api.get("/blog/list");
+            const res = await api.get("https://www.plasticspool.com/api/blog/list");
 
              
             const filtered = res.data.filter(b => b.visible);
