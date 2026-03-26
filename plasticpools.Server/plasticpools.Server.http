@@ -1,4 +1,5 @@
-@plasticpools.Server_HostAddress = http://localhost:5099
+# @plasticpools.Server_HostAddress = http://localhost:5099
+@plasticpools.Server_HostAddress = https://www.plasticspool.com/
 
 GET {{plasticpools.Server_HostAddress}}/weatherforecast/
 Accept: application/json

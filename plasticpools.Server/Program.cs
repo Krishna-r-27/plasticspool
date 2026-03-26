@@ -1,17 +1,28 @@
-    using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using plasticpools.Server.Data;
-using System;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddCors(options => {
-    options.AddPolicy("AllowReact", policy => {
-        policy.WithOrigins("https://dotcompreview.com")
-        //policy.WithOrigins("https://localhost:7067")
-              .AllowAnyMethod()
-              .AllowAnyHeader();
+
+// =======================
+// CORS (React Domain)
+// =======================
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowReact", policy =>
+    {
+        policy.WithOrigins(
+                "https://www.plasticspool.com",
+                "https://plasticspool.com",
+                "https://dotcompreview.com"
+            )
+            .AllowAnyHeader()
+            .AllowAnyMethod();
     });
 });
-// Add services to the container.
+
+// =======================
+// Database
+// =======================
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -20,24 +31,19 @@ builder.Services.AddDbContext<AppDbContext>(options =>
         ServerVersion.AutoDetect(connectionString)
     )
 );
-// Add
+
+// =======================
+// Services
+// =======================
 builder.Services.AddControllers();
- 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowAll",
-        policy => policy.AllowAnyOrigin()
-                        .AllowAnyHeader()
-                        .AllowAnyMethod());
-});
 
 var app = builder.Build();
-app.UseCors("AllowAll");
-app.UseDefaultFiles();
-app.UseStaticFiles();
 
+// =======================
+// Middleware
+// =======================
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -45,15 +51,25 @@ if (app.Environment.IsDevelopment())
 }
 else
 {
-
     app.UseHsts();
 }
+
 app.UseHttpsRedirection();
+
+// ⭐ Serve React build
+app.UseDefaultFiles();
+app.UseStaticFiles();
+
+app.UseRouting();
+
+// ⭐ Use ONLY one CORS policy
+app.UseCors("AllowReact");
 
 app.UseAuthorization();
 
 app.MapControllers();
 
-app.MapFallbackToFile("/index.html");
+// ⭐ SPA Routing Fix
+app.MapFallbackToFile("index.html");
 
 app.Run();
