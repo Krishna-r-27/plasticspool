@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
+import { NavLink, Link, useLocation } from 'react-router-dom';
 // Logo imports
 import logoWebp from '../../../assets/img/plasticspool-hi-tech-plast-logo.webp';
 import logoPng from '../../../assets/img/plasticspool-hi-tech-plast-logo.png';
@@ -45,6 +44,7 @@ const Footer = () => {
     const horizontalGradient = {
         background: "linear-gradient(to right, rgba(156, 163, 175, 0) 0%, rgba(156, 163, 175, 0.8) 50%, rgba(156, 163, 175, 0) 100%)"
     };
+    const location = useLocation();
 
     return (
         <footer className="w-full bg-[#E6E8EA] font-dmsans pt-16 border-t border-gray-200">
@@ -73,9 +73,23 @@ const Footer = () => {
                             {quickLinks.map((link) => (
                                 <li key={link.label} className="flex justify-center lg:justify-start items-center gap-3 group w-fit lg:w-full mx-auto text-center lg:text-start">
                                     <span className="w-1 h-1 rounded-full bg-[#002147] group-hover:bg-[#002147]/70 transition-colors hidden lg:block"></span>
-                                    <Link to={link.path} className="text-[#222222] text-base hover:text-[#002147] transition-colors  ">
+                                    <NavLink
+                                        to={link.path}
+                                        className={({ isActive }) => {
+                                            const isHashActive =
+                                                link.path.includes('#') &&
+                                                location.pathname === '/' &&
+                                                location.hash === '#calculator';
+
+                                            return `text-base transition-colors
+        ${(isActive || isHashActive)
+                                                    ? 'text-[#002147] font-semibold'
+                                                    : 'text-[#222222] hover:text-[#002147]'
+                                                }`;
+                                        }}
+                                    >
                                         {link.label}
-                                    </Link>
+                                    </NavLink>
                                 </li>
                             ))}
                         </ul>

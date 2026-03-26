@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { HashLink } from 'react-router-hash-link';
+import { useLocation } from 'react-router-dom';
 import Button from '../../ui/Button/Button';
 import logoWebp from '../../../assets/img/plasticspool-hi-tech-plast-logo.webp';
 import logoPng from '../../../assets/img/plasticspool-hi-tech-plast-logo.png';
@@ -30,6 +30,9 @@ const Navbar = () => {
         { label: "Blog", path: "/blog" },
         { label: "Contact Us", path: "/contact-us" }
     ];
+    const location = useLocation();
+
+    const isProductActive = location.pathname === "/products";
 
     return (
         <>
@@ -64,14 +67,19 @@ const Navbar = () => {
                                     {!item.dropdown ? (
                                         <NavLink
                                             to={item.path}
-                                            className="text-base transition-all duration-300 hover:text-[#002147]"
+                                            className={({ isActive }) =>
+                                                `text-base transition-all duration-300 hover:text-[#002147]
+        ${isActive ? 'text-[#002147] font-semibold' : ''}`
+                                            }
                                         >
                                             {item.label}
                                         </NavLink>
                                     ) : (
                                         <>
                                             {/* Products Button with Icon */}
-                                            <span className="cursor-pointer text-base flex items-center gap-1">
+                                                <span className={`cursor-pointer text-base flex items-center gap-1
+    ${isProductActive ? 'text-[#002147] font-semibold' : ''}
+`}>
                                                 {item.label}
 
                                                 {/* Dropdown Icon */}
@@ -94,9 +102,15 @@ const Navbar = () => {
                                                     <NavLink
                                                         key={sub.label}
                                                         to={sub.path}
-                                                        className={`block px-4 py-3 text-md text-secondary 
-        hover:bg-[#002147] hover:text-white transition
-        ${index !== item.dropdown.length - 1 ? 'border-b border-gray-200' : ''}`}
+                                                        className={() => {
+                                                            const isActive = location.pathname + location.search === sub.path;
+
+                                                            return `block px-4 py-3 text-md transition
+    ${isActive
+                                                                    ? 'text-[#002147] font-semibold bg-gray-100'
+                                                                    : 'text-secondary hover:bg-[#002147] hover:text-white'
+                                                                }`;
+                                                        }}
                                                     >
                                                         {sub.label}
                                                     </NavLink>
