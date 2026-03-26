@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import TinyEditor from "../../components/Forms/TinyEditor";
 import SeoMetaSection from "../../components/Forms/SeoMetaSection";
-import PageHeader from "../../components/PageHeader";
+import PageHeader from "../../components/PageHeader";  
 import api from "../../api/axios";
 import { IMAGE_BASE_URL } from "../../api/axios";
 
