@@ -25,8 +25,7 @@ import InquiryDetails from "./poweradmin/pages/InquiryManagement/InquiryDetails"
 import AddBlog from "./poweradmin/pages/BlogManagement/addblog";
 import EditBlog from "./poweradmin/pages/BlogManagement/addblog";
 import Viewblog from "./poweradmin/pages/BlogManagement/viewblog";
-import AppLayout from "./poweradmin/layout/AppLayout";
-
+import AppLayout from "./poweradmin/layout/AppLayout"; 
 function AppContent() {
     const location = useLocation();
 
@@ -43,8 +42,7 @@ function AppContent() {
 
             <main className="flex-grow">
                 <Routes>
-                    <Route path="/poweradmin/signin" element={<SignIn />} />
-             
+                    <Route path="/poweradmin/signin" element={<SignIn />} /> 
                     <Route
                         path="/poweradmin"
                         element={
@@ -61,10 +59,8 @@ function AppContent() {
                         <Route path="view-inquiry/:id" element={<InquiryDetails />} />
                         <Route path="add-blog" element={<AddBlog />} />
                         <Route path="edit-blog/:id" element={<EditBlog />} />
-                        <Route path="view-blog" element={<Viewblog />} />
-                      
-                    </Route>
- 
+                        <Route path="view-blog" element={<Viewblog />} /> 
+                    </Route> 
                     {/* Public */}
                     <Route path="/" element={<Home />} />
                     <Route path="/about-us" element={<About />} />
@@ -79,13 +75,10 @@ function AppContent() {
                     <Route path="/404" element={<NotFound />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
-            </main>
-
+            </main> 
             {/* Footer */}
-            {!isAdminRoute && <Footer />}
-
+            {!isAdminRoute && <Footer />} 
         </div>
     );
-}
-
+} 
 export default AppContent;

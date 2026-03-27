@@ -33,7 +33,8 @@ const BlogandEvents = () => {
 
     const fetchBlogs = async () => {
         try {
-            const res = await api.get("https://www.plasticspool.com/api/blog/list");
+            //const res = await api.get("https://www.plasticspool.com/api/blog/list");
+            const res = await api.get("api/blog/list");
 
             // sirf visible blogs
             const filtered = res.data.filter(b => b.visible);

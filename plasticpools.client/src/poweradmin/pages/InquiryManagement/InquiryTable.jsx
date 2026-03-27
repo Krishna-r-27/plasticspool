@@ -23,6 +23,7 @@ function BlogTable() {
         setLoading(true);
         try {
             const res = await api.get("https://www.plasticspool.com/api/blog/list");
+            //const res = await api.get("api/blog/list");
             setData(res.data);
         } catch (err) {
             console.error("Error fetching blogs", err);
@@ -42,7 +43,7 @@ function BlogTable() {
         }).then((result) => {
             if (result.isConfirmed) {
                 toast.promise(
-                    api.delete(`/blog/delete/${id}`),
+                    api.delete(`https://www.plasticspool.com/blog/delete/${id}`),
                     {
                         loading: "Deleting blog...",
                         success: () => {
@@ -70,7 +71,7 @@ function BlogTable() {
                     td,
                     <ActionButtons
                         onEdit={() =>
-                            navigate(`/poweradmin/edit-blog/${row.id}`)
+                            navigate(`https://www.plasticspool.com/poweradmin/edit-blog/${row.id}`)
                         }
                         onDelete={() => handleDelete(row.id)}
                     />

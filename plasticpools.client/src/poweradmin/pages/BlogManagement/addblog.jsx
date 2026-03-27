@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+﻿import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import TinyEditor from "../../components/Forms/TinyEditor";
 import SeoMetaSection from "../../components/Forms/SeoMetaSection";
@@ -34,7 +34,8 @@ const AddBlog = () => {
 
     const loadBlog = async () => {
         try {
-            const res = await api.get(`https://www.plasticspool.com/blog/get/${id}`);
+            const res = await api.get(`/blog/get/${id}`);
+            //const res = await api.get(`blog/get/${id}`);
             const b = res.data;
 
             setTitle(b.title);
@@ -77,24 +78,39 @@ const AddBlog = () => {
             formData.append("Seo_Meta_Description", metaDesc);
             formData.append("Visible", visible === "yes");
 
-            if (image) formData.append("Image", image);
+            if (image) {
+                formData.append("Image", image); // ✅ important
+            }
 
             if (isEdit) {
-                await api.put(`https://www.plasticspool.com/blog/update/${id}`, formData, {
-                    headers: { "Content-Type": "multipart/form-data" }
+                await api.put(`/blog/update/${id}`, formData, {
+                //await api.put(`blog/update/${id}`, formData, {
+                    //headers: { "Content-Type": "multipart/form-data" }
                 });
             } else {
-                await api.post("https://www.plasticspool.com/blog/add/", formData, {
-                    headers: { "Content-Type": "multipart/form-data" }
+                await api.post("/blog/add/", formData, {
+                //await api.post("blog/add/", formData, {
+                    //headers: { "Content-Type": "multipart/form-data" }
                 });
             }
 
             navigate("/poweradmin/view-blog");
 
-        } catch (err) {
-            console.error(err);
-            alert(isEdit ? "Update failed" : "Save failed");
-        } finally {
+        }
+        catch (err) {
+            console.error("FULL ERROR:", err);
+
+            if (err.response) {
+                console.error("SERVER ERROR:", err.response.data);
+                alert(err.response.data?.message || "Server error");
+            } else {
+                alert("Network error");
+            }
+        }
+        //catch (err) {
+        //    console.error(err);
+        //    alert(isEdit ? "Update failed" : "Save failed");
+         finally {
             setLoading(false);
         }
     };

@@ -13,10 +13,10 @@ namespace plasticpools.Server.Controllers
     {
         private readonly AppDbContext _context;
 
-        public BlogController(AppDbContext context)
-        {
-            _context = context;
-        }
+        //public BlogController(AppDbContext context)
+        //{
+        //    _context = context;
+        //}
 
         // =============================
         // ADD BLOG
@@ -84,23 +84,47 @@ namespace plasticpools.Server.Controllers
                 return StatusCode(500, new { message = "Error ❌", error = ex.Message });
             }
         }
+        private readonly IWebHostEnvironment _env;
 
-        // Updated SaveFile Method
+        public BlogController(AppDbContext context, IWebHostEnvironment env)
+        {
+            _context = context;
+            _env = env;
+        }
+
         private async Task<string> SaveFile(IFormFile file, string folder)
         {
-            var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", folder);
-            if (!Directory.Exists(uploadPath)) Directory.CreateDirectory(uploadPath);
+            var uploadPath = Path.Combine(_env.WebRootPath, folder);
 
-            var fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
+            if (!Directory.Exists(uploadPath))
+                Directory.CreateDirectory(uploadPath);
+
+            var fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
             var filePath = Path.Combine(uploadPath, fileName);
 
             using (var stream = new FileStream(filePath, FileMode.Create))
             {
-                await file.CopyToAsync(stream); // Async is better
+                await file.CopyToAsync(stream);
             }
 
             return $"{folder}/{fileName}";
         }
+        // Updated SaveFile Method
+        //private async Task<string> SaveFile(IFormFile file, string folder)
+        //{
+        //    var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", folder);
+        //    if (!Directory.Exists(uploadPath)) Directory.CreateDirectory(uploadPath);
+
+        //    var fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
+        //    var filePath = Path.Combine(uploadPath, fileName);
+
+        //    using (var stream = new FileStream(filePath, FileMode.Create))
+        //    {
+        //        await file.CopyToAsync(stream); // Async is better
+        //    }
+
+        //    return $"{folder}/{fileName}";
+        //}
 
         // =============================
         // GET BY ID
@@ -154,12 +178,14 @@ namespace plasticpools.Server.Controllers
                 blog.Image
             });
         }
-        private static string ToUrlSlug(string text)
+        private static string ToUrlSlug(string? text)
         {
             if (string.IsNullOrWhiteSpace(text)) return "";
+
             text = text.ToLowerInvariant().Replace(" ", "-");
             text = System.Text.RegularExpressions.Regex.Replace(text, @"[^a-z0-9\s-]", "-");
             text = System.Text.RegularExpressions.Regex.Replace(text, @"\s+", "-").Trim();
+
             return text;
         }
         [HttpGet("related")]
@@ -175,7 +201,7 @@ namespace plasticpools.Server.Controllers
                 {
                     x.Title,
                     x.Image,
-                    Slug = ToUrlSlug(x.Title)
+                    Slug = ToUrlSlug(x.Title ?? "")
                 })
                 .ToList();
 

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+﻿import { useState, useEffect } from "react";
 import { toast, Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import ActionButtons from "../../components/Table/table-cells/ActionButtons";
@@ -19,11 +19,31 @@ function BlogTable() {
     }, []);
 
     // ================= GET LIST =================
+    //const fetchData = async () => {
+    //    setLoading(true);
+    //    try {
+    //        const res = await api.get("/api/blog/list");
+    //        //const res = await api.get("blog/list");
+    //        setData(res.data);
+    //    } catch (err) {
+    //        console.error("Error fetching blogs", err);
+    //    } finally {
+    //        setLoading(false);
+    //    }
+    //};
     const fetchData = async () => {
         setLoading(true);
         try {
-            const res = await api.get("https://www.plasticspool.com/api/blog/list");
-            setData(res.data);
+            const res = await api.get("/blog/list");
+
+            console.log("API Response:", res.data);
+
+            // ✅ Handle all possible API structures safely
+            const blogData = Array.isArray(res.data)
+                ? res.data
+                : res.data.data || [];
+
+            setData(blogData);
         } catch (err) {
             console.error("Error fetching blogs", err);
         } finally {
@@ -48,6 +68,7 @@ function BlogTable() {
         }).then((result) => {
             if (result.isConfirmed) {
                 toast.promise(
+                    //api.delete(`/blog/delete/${id}`),
                     api.delete(`/blog/delete/${id}`),
                     {
                         loading: "Deleting blog...",
@@ -63,18 +84,51 @@ function BlogTable() {
     };
 
     // ================= COLUMNS =================
+    //const columns = [
+    //    { title: "TITLE", data: "title" },
+    //    {
+    //        title: "VISIBLE",
+    //        data: "visible",
+    //        render: (val) =>
+    //            `<span class="${val ? "text-green-600" : "text-red-500"
+    //            } font-medium">
+    //                ${val ? "Yes" : "No"}
+    //            </span>`,
+    //    },
+
+    //    {
+    //        title: "ACTION",
+    //        data: null,
+    //        orderable: false,
+    //        searchable: false,
+    //        createdCell: (td, _, row) =>
+    //            renderCell(
+    //                td,
+    //                <ActionButtons
+    //                    onEdit={() =>
+    //                        //navigate(`/poweradmin/edit-blog/${row.id}`)
+    //                        navigate(`/poweradmin/edit-blog/${row.id}`)
+    //                    }
+    //                    onDelete={() => handleDelete(row.id)}
+    //                />
+    //            ),
+    //    },
+    //];
     const columns = [
-        { title: "TITLE", data: "title" },
+        {
+            title: "TITLE",
+            data: "title",
+            defaultContent: "", // ✅ prevents crash if missing
+        },
         {
             title: "VISIBLE",
             data: "visible",
+            defaultContent: "",
             render: (val) =>
-                `<span class="${val ? "text-green-600" : "text-red-500"
-                } font-medium">
-                    ${val ? "Yes" : "No"}
-                </span>`,
+                `<span class="${val ? "text-green-600" : "text-red-500"} font-medium">
+                ${val ? "Yes" : "No"}
+            </span>`,
         },
-
         {
             title: "ACTION",
             data: null,
