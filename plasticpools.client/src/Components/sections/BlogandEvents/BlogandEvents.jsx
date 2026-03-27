@@ -46,7 +46,7 @@ const BlogandEvents = () => {
         }
     };
     return (
-        <section className="relative bg-white overflow-x-hidden pb-16 md:pb-28">
+        <section className="relative bg-white overflow-x-hidden pb-10 md:pb-28">
             <div className="container flex items-center justify-between flex-col md:flex-row pb-8">
                 <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#002147] font-unbounded pb-6">
                     Blogs & Events

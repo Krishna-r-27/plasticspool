@@ -5,7 +5,7 @@ const api = axios.create({
     baseURL: "/api",
     //baseURL: "https://www.plasticspool.com/api",
     headers: {
-        "Content-Type": "multipart/form-data",
+        "Content-Type": "application/json",
     },
 });
 

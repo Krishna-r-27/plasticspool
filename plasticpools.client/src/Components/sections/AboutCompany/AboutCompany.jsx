@@ -15,7 +15,7 @@ const AboutCompany = ({
     showTitle = true
 }) => {
     return (
-        <section className="py-16 md:py-28 bg-white font-dmsans overflow-hidden">
+        <section className="py-10 md:py-28 bg-white font-dmsans overflow-hidden">
             <div className="container mx-auto px-4 lg:px-6">
                 <div className="flex flex-col lg:flex-row items-center lg:gap-24">
 

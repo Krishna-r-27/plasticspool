@@ -10,7 +10,7 @@ const contactData = [
                 <path d="M17.1834 7.04165C16.3084 3.19165 12.9501 1.45831 10.0001 1.45831C10.0001 1.45831 10.0001 1.45831 9.99175 1.45831C7.05008 1.45831 3.68341 3.18331 2.80841 7.03331C1.83341 11.3333 4.46675 14.975 6.85008 17.2666C7.73341 18.1166 8.86675 18.5416 10.0001 18.5416C11.1334 18.5416 12.2667 18.1166 13.1417 17.2666C15.5251 14.975 18.1584 11.3416 17.1834 7.04165ZM10.0001 11.2166C8.55008 11.2166 7.37508 10.0416 7.37508 8.59165C7.37508 7.14165 8.55008 5.96665 10.0001 5.96665C11.4501 5.96665 12.6251 7.14165 12.6251 8.59165C12.6251 10.0416 11.4501 11.2166 10.0001 11.2166Z" fill="#002147" />
             </svg>
         ),
-        details: ["759, GIDC Estate, Waghodia,", "Dist. Vadodara - 391760, Gujarat, India"],
+        details: ["Hi-Tech Plast","759, GIDC Estate, Waghodia,", "Dist. Vadodara - 391760, Gujarat, India"],
         type: "text"
     },
     {
@@ -77,7 +77,7 @@ const ContactSection = () => {
         <>
             <InnerBanner title="Contact Us" breadcrumb="Contact Us" />
 
-            <section className="py-16 md:py-28  bg-white font-dmsans overflow-hidden">
+            <section className="py-10 md:py-28  bg-white font-dmsans overflow-hidden">
                 <div className="container mx-auto px-4 lg:px-8">
                     <div className="grid grid-cols-1 xl:grid-cols-[0.7fr_1.3fr] items-center gap-12 lg:gap-20">
 

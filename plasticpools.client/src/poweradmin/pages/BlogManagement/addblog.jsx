@@ -74,9 +74,9 @@ const AddBlog = () => {
             formData.append("Title", title);
             formData.append("Description1", description1);
            
-            formData.append("Seo_Title", seoTitle);
-            formData.append("Seo_Meta_Description", metaDesc);
-            formData.append("Visible", visible === "yes");
+            formData.append("SeoTitle", seoTitle);
+            formData.append("SeoMetaDescription", metaDesc);
+            formData.append("Visible", visible === "yes" ? "true" : "false");
 
             if (image) {
                 formData.append("Image", image); // ✅ important
@@ -85,12 +85,12 @@ const AddBlog = () => {
             if (isEdit) {
                 await api.put(`/blog/update/${id}`, formData, {
                 //await api.put(`blog/update/${id}`, formData, {
-                    //headers: { "Content-Type": "multipart/form-data" }
+                    headers: { "Content-Type": "multipart/form-data" }
                 });
             } else {
                 await api.post("/blog/add/", formData, {
                 //await api.post("blog/add/", formData, {
-                    //headers: { "Content-Type": "multipart/form-data" }
+                    headers: { "Content-Type": "multipart/form-data" }
                 });
             }
 

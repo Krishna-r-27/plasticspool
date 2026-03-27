@@ -7,7 +7,7 @@ import bannerBgPng from '../../../assets/img/plasticspool-hi-tech-plast-inner-ba
 
 const InnerBanner = ({ title, breadcrumb }) => {
     return (
-        <section className="relative w-full py-20 md:py-28 flex flex-col items-center justify-center text-center overflow-hidden">
+        <section className="relative w-full py-15 md:py-28 flex flex-col items-center justify-center text-center overflow-hidden">
             {/* Background Layer with PNG + WebP Combo (Directly inside component) */}
             <picture className="absolute inset-0 w-full h-full">
                 <source srcSet={bannerBgWebp} type="image/webp" />
@@ -23,7 +23,7 @@ const InnerBanner = ({ title, breadcrumb }) => {
 
             {/* Content Section */}
             <div className="relative z-10 px-4">
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 text-[#FFE135]  capitalize ">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-2 md:mb-4 text-[#FFE135]  capitalize ">
                     {title}
                 </h1>
 
