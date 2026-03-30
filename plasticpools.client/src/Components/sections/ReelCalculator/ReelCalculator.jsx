@@ -35,7 +35,7 @@ const ReelCalculator = () => {
                 </div>
 
                 {/* Right Panel: Navy Section */}
-                <div className="bg-[#002147]  flex flex-col justify-center  p-8 md:p-12 rounded-tl-[50px] rounded-br-[50px] rounded-tr-none rounded-bl-none shadow-xl">
+                <div className="bg-[#002147]  flex flex-col justify-center  p-6 md:p-12 rounded-tl-[50px] rounded-br-[50px] rounded-tr-none rounded-bl-none shadow-xl">
                     <div className="self-center">
                     <CalculatorForm />
                     <p className="mt-8 text-base text-white font-dmsans leading-relaxed">

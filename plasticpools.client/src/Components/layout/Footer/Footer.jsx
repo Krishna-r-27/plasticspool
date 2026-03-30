@@ -47,9 +47,9 @@ const Footer = () => {
     const location = useLocation();
 
     return (
-        <footer className="w-full bg-[#E6E8EA] font-dmsans pt-16 border-t border-gray-200">
+        <footer className="w-full bg-[#E6E8EA] font-dmsans pt-10 md:pt-16 border-t border-gray-200">
             <div className="container mx-auto px-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 pb-16 text-center lg:text-start relative">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-12  pb-10 md:pb-16 text-center lg:text-start relative">
 
                     {/* Column 1: Logo & About */}
                     <div className="space-y-6 relative lg:pr-10 sm:col-span-2 lg:col-span-1">
@@ -98,11 +98,12 @@ const Footer = () => {
 
                     {/* Column 3: Contact Us */}
                     <div className="lg:pl-10 md:text-start">
-                        <h4 className="text-[#001933] font-unbounded text-2xl font-bold mb-8 text-center lg:text-start">Contact Us</h4>
+                        <h4 className="text-[#001933] font-unbounded text-2xl font-bold my-5 md:mb-8 text-center lg:text-start">Contact Us</h4>
                         <div className="space-y-6">
                             <div className="flex gap-4 flex-col lg:flex-row items-center lg:items-start text-center lg:text-start">
                                 <div className="mt-1"><Icons.Location /></div>
                                 <p className="text-[#222222] text-base ">
+                                    <span className="font-semibold text-[#001933] text-lg">Hi-Tech Plast</span> <br />
                                     759, GIDC Estate, Waghodia,<br /> Dist. Vadodara - 391760, Gujarat, India
                                 </p>
                             </div>
@@ -127,8 +128,10 @@ const Footer = () => {
                 <div className="w-full h-[2px] hidden lg:block" style={horizontalGradient}></div>
 
                 <div className="border-t border-gray-300 lg:border-none py-8 flex text-center lg:text-start flex-col md:flex-row justify-between items-center gap-4 text-base text-[#555555]">
-                    <p>Copyright © 2026, Plasticspool. All Rights Reserved. | <Link to="/sitemap" className="hover:underline">Sitemap</Link> | <Link to="/faq" className="hover:underline">FAQ</Link></p>
-                    <p>Website Design by D&C</p>
+                    <p>Copyright © 2026, Hi-Tech Plast. All Rights Reserved. | <Link to="/sitemap" className="hover:underline">Sitemap</Link> | <Link to="/faq" className="hover:underline">FAQ</Link></p>
+                    <p>
+                        Website Design by <a className="hover:text-[#002147]" href="https://www.dotsandcoms.in/" target="_blank" rel="noopener noreferrer">D&C</a>
+                    </p>
                 </div>
             </div>
         </footer>

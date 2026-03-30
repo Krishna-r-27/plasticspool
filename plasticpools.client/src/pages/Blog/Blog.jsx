@@ -33,7 +33,7 @@ const Blog = () => {
         <>
             <InnerBanner title="Blog" breadcrumb="Blog" />
 
-            <main className="w-full py-16 lg:py-24 bg-white">
+            <main className="w-full py-10 lg:py-24 bg-white">
                 <div className="container">
 
                     {/* HEADER */}

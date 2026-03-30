@@ -89,9 +89,9 @@ const InquiryForm = () => {
 
     return (
 
-        <div className="w-full bg-[#002147] p-8 md:p-12 rounded-[30px]  text-center lg:text-start">
+        <div className="w-full bg-[#002147] p-6 md:p-12 rounded-[30px] mt-0 lg:mt-8 text-center lg:text-start">
             <ToastContainer position="top-right" autoClose={2500} />
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold font-unbounded text-white mb-10 tracking-tight uppercase">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold font-unbounded text-white mb-6 md:mb-10 tracking-tight uppercase">
                 Quick Inquiry
             </h2>
 
