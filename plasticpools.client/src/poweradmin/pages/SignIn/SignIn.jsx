@@ -2,6 +2,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import AppFooter from "../../layout/AppFooter";
 import api, { IMAGE_BASE_URL } from "../../api/axios";
+import { Eye, EyeOff } from "lucide-react";
 
 const SignIn = () => {
     const navigate = useNavigate();
@@ -10,7 +11,7 @@ const SignIn = () => {
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
-
+    const [showPassword, setShowPassword] = useState(false);
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError("");
@@ -94,9 +95,9 @@ const SignIn = () => {
                         </div>
 
                         {/* Password */}
-                        <div className="mb-6">
+                        <div className="mb-6  relative">
                             <input
-                                type="password"
+                                type={showPassword ? "text" : "password"}
                                 placeholder="Password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
@@ -109,6 +110,13 @@ const SignIn = () => {
                                 focus:outline-none focus:ring-2
                                 focus:ring-blue-800 dark:focus:ring-blue-500"
                             />
+                            <button
+                                type="button"
+                                onClick={() => setShowPassword(!showPassword)}
+                                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"
+                            >
+                                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                            </button>
                         </div>
 
                         {/* Actions */}
