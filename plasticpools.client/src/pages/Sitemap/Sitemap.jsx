@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { setSEO } from "../../Components/utility/seo";
 import { Link } from 'react-router-dom';
 import InnerBanner from '../../Components/layout/InnerBanner/InnerBanner';
 
@@ -26,6 +27,16 @@ const Icons = {
 const Sitemap = () => {
 
     useEffect(() => {
+        setSEO({
+            title: "Sitemap | Plastic Spool, Reel & Bobbin Manufacturer Website Structure",
+            description: "Explore the sitemap of PlasticSpool to easily navigate pages including products, calculator, blog, FAQ, and contact. Find complete information about plastic spools, reels, and bobbins.",
+            keywords: "sitemap plastic spool website, plastic reel website structure, bobbin manufacturer pages, spool manufacturer Gujarat sitemap, industrial plastic reels navigation",
+            image: "https://www.plasticspool.com/plasticspool-hi-tech-plast-logo.png",
+            url: "https://www.plasticspool.com/sitemap"
+        });
+    }, []);
+
+    useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
@@ -33,37 +44,69 @@ const Sitemap = () => {
         {
             title: "Home",
             path: "/",
-            desc: "Incorporated in 1995, Hi-Tech Plast manufactures cost-effective and efficient Plastic Reels, Bobbins, and Spools for various industrial purposes. Admired for quality products and prompt services across India."
+            desc: "PlasticSpool is a trusted plastic spool, reel, and bobbin manufacturer in Vadodara, offering high-quality solutions for wires, cables, welding wire, and tubes. Our range of industrial plastic reels and custom plastic spools is designed for durability, precision, and efficient winding and packaging. With a focus on performance and reliability, we provide plastic reels for enamelled wires, insulated cables, and PU pipes, making us a preferred spool manufacturer in Gujarat and across India."
         },
         {
             title: "About Us",
             path: "/about-us",
-            desc: "Learn about Hi-Tech Plast's journey since 1995 — our mission, values, state-of-the-art manufacturing facilities, and our dedicated team of professionals committed to quality and on-time delivery."
+            desc: "We are an experienced plastic spool manufacturer specializing in plastic reels and bobbins for industrial applications including wire winding, cable packaging, and tube handling. Based in Gujarat, we focus on delivering durable and precision-engineered plastic spools tailored to customer requirements. Our expertise in custom plastic reels and industrial bobbins allows us to support a wide range of industries with reliable and cost-effective spool solutions."
         },
         {
             title: "Products",
             path: "/products",
-            desc: "Explore our range of Plastic Reels, Bobbins, and Spools made from recycled Polypropylene (PP) for packing Winding Wires, Welding Wires, and Jari/Metal Threads — designed for hassle-free unwinding on high-speed machines."
+            desc: "Our product range includes plastic spools, reels, and bobbins designed for wires, cables, welding wire, and PU pipes and tubes. These industrial plastic reels are built for strength, consistency, and smooth winding performance. We offer custom plastic spools and bobbins for enamelled wires, insulated cables, and packaging applications, ensuring reliable handling and efficient storage across various industrial processes. Explore more products given below.",
+            subProducts: [
+                {
+                    name: "Spools for Enameled Wires",
+                    path: "https://www.plasticspool.com/products?tab=enameled",
+                    desc: "High-quality plastic spools designed for enamelled wires, ensuring smooth and uniform winding during high-speed operations. These reels are manufactured using durable materials to prevent deformation, improve efficiency, and support consistent wire handling in electrical and industrial applications."
+                },
+                {
+                    name: "Customized Spools",
+                    path: "https://www.plasticspool.com/products?tab=customized",
+                    desc: "Custom plastic spools and reels developed to meet specific industrial requirements. We offer flexibility in size, design, and load capacity, making them ideal for unique winding, packaging, and storage applications across various industries."
+                },
+                {
+                    name: "Spools for Cable",
+                    path: "https://www.plasticspool.com/products?tab=cable",
+                    desc: "Heavy-duty plastic reels for cable winding, designed to provide strength, stability, and long-lasting performance. These cable spools ensure efficient handling, organized storage, and safe transportation of electrical and industrial cables."
+                },
+                {
+                    name: "Spools for PU Pipes and Tubes",
+                    path: "https://www.plasticspool.com/products?tab=pu-pipes",
+                    desc: "Specialized plastic spools for PU pipes and tubes, offering secure winding and easy transportation. These reels are built to handle flexible materials while maintaining shape integrity and ensuring efficient storage in industrial environments."
+                },
+                {
+                    name: "Spools for Zipper",
+                    path: "https://www.plasticspool.com/products?tab=spool",
+                    desc: "Precision-engineered plastic spools for zipper winding applications, ensuring uniform tension and smooth operation. These reels are ideal for textile and garment industries requiring consistent and reliable winding solutions."
+                },
+                {
+                    name: "Spools for Welding Wire",
+                    path: "https://www.plasticspool.com/products?tab=spool-welding",
+                    desc: "Durable plastic reels designed for welding wire applications, offering excellent strength and resistance to industrial wear. These spools ensure smooth feeding, organized storage, and reliable performance in demanding welding environments."
+                }
+            ]
         },
         {
             title: "Calculator",
-            path: "/calculator",
-            desc: "Use our online calculator to estimate reel and bobbin specifications based on your winding wire requirements. Get quick, accurate calculations to support your procurement decisions."
+            path: "/#calculator",
+            desc: "The Reel Capacity Calculator page helps users easily estimate the maximum length of wire or cable that can be wound on plastic spools, reels, and bobbins. By entering key dimensions such as flange diameter, barrel diameter, traverse length, and cable diameter, users can calculate accurate reel capacity for industrial applications. This tool is especially useful for wire and cable manufacturers, improving efficiency, reducing material wastage, and ensuring optimal spool utilization."
         },
         {
             title: "Blog",
             path: "/blog",
-            desc: "Stay updated with the latest news, industry insights, and articles from Hi-Tech Plast on plastic reels, winding wire packaging, manufacturing trends, and more."
+            desc: "Our blog shares valuable insights on plastic spools, reels, and bobbins, covering their applications in wire, cable, and industrial packaging industries. Explore guides on selecting the right plastic spool, understanding different types of reels, and improving winding efficiency. Stay updated with trends, innovations, and best practices related to plastic reel manufacturing and industrial spool usage."
         },
         {
             title: "FAQ",
             path: "/faq",
-            desc: "Find answers to frequently asked questions about our Plastic Reels, Bobbins, and Spools — including material specifications, ordering process, delivery timelines, and customisation options."
+            desc: "The FAQ section answers common queries related to plastic spools, reels, and bobbins, including materials, applications for wires and cables, customization options, and quality assurance. It helps users understand our manufacturing process, product compatibility, and industrial uses, making it easier to choose the right plastic spool solutions for their specific requirements."
         },
         {
             title: "Contact Us",
             path: "/contact-us",
-            desc: "Get in touch with Hi-Tech Plast for product inquiries, pricing, and delivery information. We're here to assist you with all your plastic reel and bobbin requirements.",
+            desc: "Get in touch with our team for high-quality plastic spools, reels, and bobbins tailored to your industrial requirements. As a reliable plastic spool manufacturer in Vadodara, we assist with product inquiries, custom spool solutions, and bulk supply needs. Whether you need plastic reels for wires, cables, or tubes, we are here to provide efficient and dependable support.",
             email: "info@hitechplast.com"
         }
     ];
@@ -75,26 +118,43 @@ const Sitemap = () => {
 
 
             {/* Content List */}
-            <section className="py-16 md:py-28">
+            <section className="py-10 lg:py-24">
                 <div className="container ">
                         {sitemapData.map((item, index) => (
-                            <div key={index} className="py-2">
+                            <div key={index} className="py-2 md:py-3">
                                 <Link to={item.path} className="group inline-block">
-                                    <h3 className="font-secondary text-[#002147]  text-lg font-bold capitalize">
+                                    <h3 className="font-secondary text-[#002147]  text-lg md:text-xl lg:text-2xl font-bold capitalize">
                                         {item.title}
                                     </h3>
                                 </Link>
 
-                                <p className="leading-relaxed text-gray-600">
+                                <p className="leading-relaxed text-gray-600 mt-1">
                                     {item.desc}
                                 </p>
 
+                                {item.subProducts && (
+                                    <div className="mt-3 md:mt-5 pl-4">
+                                        {item.subProducts.map((sub, i) => (
+                                            <div key={i} className="mb-3">
+                                                <Link to={sub.path}>
+                                                    <h4 className="text-[#002147] font-semibold text-lg">
+                                                        {sub.name}
+                                                    </h4>
+                                                </Link>
+                                                <p className="text-gray-600 text-md mt-1">
+                                                    {sub.desc}
+                                                </p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+
                                 {item.title === "Contact Us" ? (
-                                    <div className="space-y-4 mt-3">
+                                    <div className="space-y-4 mt-3 md:mt-4">
                                         <div className="flex gap-4 flex-col lg:flex-row items-center lg:items-start text-center lg:text-start">
                                             <div className="mt-1"><Icons.Location /></div>
                                             <p className="text-gray-600 text-base">
-                                                <span className="font-semibold text-[#001933] text-md">Hi-Tech Plast</span> <br />
+                                                <span className="font-semibold text-[#002147] text-md">Hi-Tech Plast</span> <br />
                                                 759, GIDC Estate, Waghodia,<br /> Dist. Vadodara - 391760, Gujarat, India
                                             </p>
                                         </div>

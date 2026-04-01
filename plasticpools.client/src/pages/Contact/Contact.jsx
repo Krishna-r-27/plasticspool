@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { setSEO } from "../../Components/utility/seo";
 import InnerBanner from '../../Components/layout/InnerBanner/InnerBanner';
 import InquiryForm from '../../Components/ui/Forms/InquiryForm';
 
@@ -51,6 +52,17 @@ const contactData = [
 ];
 
 const ContactSection = () => {
+
+    useEffect(() => {
+        setSEO({
+            title: "Contact Plastic Spool Manufacturer Vadodara",
+            description: "Contact us for plastic spools, reels, and bobbins. Get support for product inquiries, custom requirements, and reliable industrial winding solutions.",
+            keywords: "contact spool manufacturer, plastic reel supplier Vadodara, bobbin manufacturer contact, custom spool inquiry, plastic spool supplier Gujarat, industrial reel supplier India, get quote plastic spools",
+            image: "https://www.plasticspool.com/plasticspool-hi-tech-plast-logo.png",
+            url: "https://www.plasticspool.com/contact-us"
+        });
+    }, []);
+
     const borderColor = "border-[#002147]";
     const textColor = "text-[#002147]";
 

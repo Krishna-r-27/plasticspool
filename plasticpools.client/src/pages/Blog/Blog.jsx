@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { setSEO } from "../../Components/utility/seo";
 import InnerBanner from '../../Components/layout/InnerBanner/InnerBanner';
 import BlogCard from '../../Components/ui/BlogCard/BlogCard';
 import api, { IMAGE_BASE_URL } from "../../poweradmin/api/axios";
@@ -11,6 +12,17 @@ const Blog = () => {
     useEffect(() => {
         fetchBlogs();
     }, []);
+
+    useEffect(() => {
+        setSEO({
+            title: "Blog | Plastic Spools & Reel Industry Insights ",
+            description: "Explore articles on plastic spools, reels, and bobbins with insights on applications, selection tips, and trends in wire, cable, and industrial packaging.",
+            keywords: "plastic spool blog, reel industry insights, wire spool guide, plastic bobbin uses, spool selection guide, cable reel applications, industrial packaging blog, winding spool tips",
+            image: "https://www.plasticspool.com/plasticspool-hi-tech-plast-logo.png",
+            url: "https://www.plasticspool.com/blog"
+        });
+    }, []);
+
 
     const fetchBlogs = async () => {
         try {

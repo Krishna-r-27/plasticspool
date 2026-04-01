@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import AboutCompany from '../../Components/sections/AboutCompany/AboutCompany';
 import InnerBanner from '../../Components/layout/InnerBanner/InnerBanner';
-
+import { setSEO } from "../../Components/utility/seo";
 // Page specific images
 import homeAboutWebp from '../../assets/img/about-iso-new-img-1.webp';
 import homeAboutPng from '../../assets/img/about-iso-new-img-1.png';
@@ -17,6 +17,16 @@ As far as the quality of our products is concerned, we have never compromised no
 };
 
 function About() {
+    useEffect(() => {
+        setSEO({
+            title: "About Us | Plastic Spool Manufacturer in Gujarat",
+            description: "Experienced plastic spool manufacturer offering reels and bobbins for industrial use. Focused on quality, precision, and custom solutions across applications.",
+            keywords: "about plastic spool company, spool manufacturer Gujarat, industrial plastic reel company, bobbin manufacturer India, custom spool manufacturer, plastic spool industry experience, reel manufacturer Vadodara, plastic packaging solutions",
+            image: "https://www.plasticspool.com/plasticspool-hi-tech-plast-logo.png",
+            url: "https://www.plasticspool.com/about-us"
+        });
+    }, []);
+
     return (
         <main className="bg-white">
             {/* Ab sirf title aur breadcrumb pass karna hai */}

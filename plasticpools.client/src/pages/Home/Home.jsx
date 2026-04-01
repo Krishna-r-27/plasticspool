@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { setSEO } from "../../Components/utility/seo";
 import HomeBanner from "../../Components/layout/HomeBanner/HomeBanner";
 
 // Asset Imports
@@ -12,6 +13,17 @@ import BlogandEvents from '../../Components/sections/BlogandEvents/BlogandEvents
 
 
 const Home = () => {
+
+    useEffect(() => {
+        setSEO({
+            title: "Plastic Spool & Reel Manufacturer in Vadodara",
+            description: "Leading manufacturer of plastic spools, reels, and bobbins for wires, cables, and tubes. Offering durable and custom solutions for industrial winding needs.",
+            keywords: "plastic spool manufacturer, plastic reel manufacturer, plastic bobbin manufacturer, wire spool supplier, cable reel manufacturer, custom plastic spools, industrial plastic reels, spool manufacturer Vadodara, plastic reels Gujarat, winding reels India",
+            image: "https://www.plasticspool.com/plasticspool-hi-tech-plast-logo.png",
+            url: "https://www.plasticspool.com/"
+        });
+    }, []);
+
     // Description text for the About Section
     const aboutData = {
         title: "About Company",

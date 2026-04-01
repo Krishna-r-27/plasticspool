@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { setSEO } from "../../Components/utility/seo";
 import InnerBanner from '../../Components/layout/InnerBanner/InnerBanner';
-import Button from '../../Components/ui/Button/Button';
 
 
 const thankYouContent = [
@@ -31,6 +30,16 @@ const ThankYou = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
+    }, []);
+
+    useEffect(() => {
+        setSEO({
+            title: "Thank You | Plastic Spool Manufacturer in Vadodara",
+            description: "Thank you for contacting us. Our team will get back to you shortly regarding your inquiry about plastic spools, reels, and bobbins for industrial applications.",
+            keywords: "thank you page plastic spool, inquiry submitted spool manufacturer, plastic reel inquiry Vadodara, bobbin manufacturer contact confirmation, industrial spool inquiry India",
+            image: "https://www.plasticspool.com/plasticspool-hi-tech-plast-logo.png",
+            url: "https://www.plasticspool.com/thank-you"
+        });
     }, []);
 
     const [visible, setVisible] = useState([]);
