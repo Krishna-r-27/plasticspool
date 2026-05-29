@@ -130,7 +130,7 @@ const Footer = () => {
                 <div className="border-t border-gray-300 lg:border-none py-8 flex text-center lg:text-start flex-col md:flex-row justify-between items-center gap-4 text-base text-[#555555]">
                     <p>Copyright © 2026, Hi-Tech Plast. All Rights Reserved. | <Link to="/sitemap" className="hover:underline">Sitemap</Link> | <Link to="/faq" className="hover:underline">FAQ</Link></p>
                     <p>
-                        Website Design by <a className="hover:text-[#002147]" href="https://www.dotsandcoms.in/" target="_blank" rel="noopener noreferrer">D&C</a>
+                        Website Design by <a className="hover:text-[#002147]" href="https://www.dotsandcoms.in/" target="_blank" rel="noopener noreferrer">Dots and Coms</a>
                     </p>
                 </div>
             </div>
