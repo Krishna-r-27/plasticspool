@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /poweradmin/
+Disallow: /poweradmin/*
+
+Sitemap: https://www.plasticspool.com/sitemap.xml

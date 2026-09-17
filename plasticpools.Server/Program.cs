@@ -1,5 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using plasticpools.Server.Data;
+using plasticpools.Server.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -56,20 +57,23 @@ else
 
 app.UseHttpsRedirection();
 
-// ⭐ Serve React build
+// Serve React static build assets
 app.UseDefaultFiles();
 app.UseStaticFiles();
 
+// SEO Prerendering & Dynamic Crawler Injection Middleware
+app.UseMiddleware<SeoPrerenderMiddleware>();
+
 app.UseRouting();
 
-// ⭐ Use ONLY one CORS policy
+// Use ONLY one CORS policy
 app.UseCors("AllowReact");
 
 app.UseAuthorization();
 
 app.MapControllers();
 
-// ⭐ SPA Routing Fix
-app.MapFallbackToFile("index.html");
+// SPA Fallback: always serve empty-root spa-shell.html for client routing
+app.MapFallbackToFile("spa-shell.html");
 
 app.Run();

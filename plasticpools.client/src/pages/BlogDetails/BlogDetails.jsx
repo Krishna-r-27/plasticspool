@@ -1,7 +1,8 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import InnerBanner from '../../Components/layout/InnerBanner/InnerBanner';
 import RelatedBlogs from '../../Components/sections/RelatedBlogs/RelatedBlogs';
+import { setSEO } from '../../Components/utility/seo';
 import api, { IMAGE_BASE_URL } from "../../poweradmin/api/axios";
 
 const BlogDetails = () => {
@@ -17,6 +18,16 @@ const BlogDetails = () => {
         try {
             const res = await api.get(`/blog/getbyslug/${slug}`);
             setBlog(res.data);
+            if (res.data) {
+                const cleanDesc = (res.data.description1 || "").replace(/<[^>]*>/g, '').trim().slice(0, 160);
+                setSEO({
+                    title: res.data.seo_Title || res.data.title || "Blog Details | Hi-Tech Plast",
+                    description: res.data.seo_Meta_Description || cleanDesc || "Explore insights on plastic spools and reels.",
+                    keywords: "plastic spool blog, wire spool, reel manufacturing, Hi-Tech Plast",
+                    image: res.data.image ? `${IMAGE_BASE_URL}/${res.data.image}` : "https://www.plasticspool.com/plasticspool-hi-tech-plast-logo.png",
+                    url: `https://www.plasticspool.com/blog/${slug}`
+                });
+            }
         } catch (err) {
             console.error("Error fetching blog", err);
         }

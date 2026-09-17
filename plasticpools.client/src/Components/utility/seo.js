@@ -4,9 +4,11 @@ export function setSEO({
     keywords,
     image,
     url,
+    robots = "index, follow",
 }) {
     if (title) document.title = title;
 
+    updateMeta("name", "robots", robots || "index, follow");
     updateMeta("name", "description", description);
     updateMeta("name", "keywords", keywords);
 
