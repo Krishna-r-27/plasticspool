@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { setSEO } from '../../Components/utility/seo';
 import InnerBanner from '../../Components/layout/InnerBanner/InnerBanner';
 
 const faqData = [
@@ -103,6 +104,13 @@ const FAQ = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
+        setSEO({
+            title: "Frequently Asked Questions | Plastic Spool & Reel Manufacturer",
+            description: "Frequently asked questions about plastic spools, reels, bobbins, materials, customization, high-speed winding compatibility, and ordering from Hi-Tech Plast.",
+            keywords: "plastic spool FAQ, reel questions, bobbin manufacturer queries, plastic spool MOQ, custom reel questions",
+            image: "https://www.plasticspool.com/plasticspool-hi-tech-plast-logo.png",
+            url: "https://www.plasticspool.com/faq"
+        });
     }, []);
 
     const [openId, setOpenId] = useState(1); // first open by default

@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using plasticpools.Server.Data;
 using plasticpools.Server.DTOs;
@@ -175,7 +175,9 @@ namespace plasticpools.Server.Controllers
             {
                 blog.Title,
                 blog.Description1,
-                blog.Image
+                blog.Image,
+                blog.Seo_Title,
+                blog.Seo_Meta_Description
             });
         }
         private static string ToUrlSlug(string? text)
